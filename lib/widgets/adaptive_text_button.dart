@@ -10,7 +10,16 @@ class AdaptiveTextButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Platform.isIOS
+    bool isIOS;
+    try {
+      if (Platform.isIOS)
+        isIOS = true;
+      else
+        isIOS = false;
+    } catch (e) {
+      isIOS = false;
+    }
+    return isIOS
         ? CupertinoButton(
             child: Text('Choose Date',
                 style: TextStyle(fontWeight: FontWeight.bold)),

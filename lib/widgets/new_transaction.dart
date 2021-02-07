@@ -60,6 +60,15 @@ class _NewTransactionState extends State<NewTransaction> {
 
   @override
   Widget build(BuildContext context) {
+    bool isIOS;
+    try {
+      if (Platform.isIOS)
+        isIOS = true;
+      else
+        isIOS = false;
+    } catch (e) {
+      isIOS = false;
+    }
     return SingleChildScrollView(
       child: Card(
           elevation: 5,
@@ -98,8 +107,8 @@ class _NewTransactionState extends State<NewTransaction> {
                       AdaptiveTextButton('Choose a date', _presentDatePicker)
                     ],
                   ),
-                ), // not sure why we have this
-                Platform.isIOS
+                ),
+                isIOS
                     ? CupertinoButton(
                         onPressed: _submitData, child: Text('Add Transaction'))
                     : ElevatedButton(

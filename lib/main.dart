@@ -135,9 +135,22 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+    // I should extend
+    bool isIOS = false;
+    bool isAndroid = false;
+    bool isWeb = false;
+    try {
+      if (Platform.isIOS)
+        isIOS = true;
+      else if (Platform.isAndroid) isAndroid = true;
+    } catch (e) {
+      isWeb = true;
+    }
+
     final mediaQuery = MediaQuery.of(context);
-    final _isLandscape = mediaQuery.orientation == Orientation.landscape;
-    final PreferredSizeWidget appBar = Platform.isIOS
+    final _isLandscape =
+        mediaQuery.orientation == Orientation.landscape && !isWeb;
+    final PreferredSizeWidget appBar = isIOS
         ? CupertinoNavigationBar(
             middle: Text('Personal Expense'),
             trailing: Row(mainAxisSize: MainAxisSize.min, children: [
@@ -200,13 +213,13 @@ class _MyHomePageState extends State<MyHomePage> {
         ],
       ),
     ));
-    return Platform.isIOS
+    return isIOS
         ? CupertinoPageScaffold(child: pageBody)
         : Scaffold(
             appBar: appBar,
             floatingActionButtonLocation:
                 FloatingActionButtonLocation.centerDocked,
-            floatingActionButton: Platform.isIOS
+            floatingActionButton: isIOS
                 ? Container()
                 : FloatingActionButton(
                     child: Icon(Icons.add),
