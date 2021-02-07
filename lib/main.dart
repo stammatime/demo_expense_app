@@ -135,7 +135,8 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    // I should extend
+    // Platform.isWeb not implemented and will throw error on web apps
+    // https://github.com/flutter/flutter/issues/36126
     bool isIOS = false;
     bool isAndroid = false;
     bool isWeb = false;
@@ -174,8 +175,7 @@ class _MyHomePageState extends State<MyHomePage> {
             appBar.preferredSize.height -
             mediaQuery.padding.top);
 
-    var pageBody = SafeArea(
-        child: SingleChildScrollView(
+    var pageBody = SingleChildScrollView(
       child: Column(
         // mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -212,9 +212,9 @@ class _MyHomePageState extends State<MyHomePage> {
                 : txListWidget,
         ],
       ),
-    ));
+    );
     return isIOS
-        ? CupertinoPageScaffold(child: pageBody)
+        ? SafeArea(child: CupertinoPageScaffold(child: pageBody))
         : Scaffold(
             appBar: appBar,
             floatingActionButtonLocation:

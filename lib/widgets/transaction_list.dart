@@ -18,7 +18,7 @@ class TransactionList extends StatelessWidget {
                     style: Theme.of(context).textTheme.headline6),
                 SizedBox(height: 100),
                 Container(
-                  height: constraints.maxHeight * .6,
+                  height: constraints.maxHeight * .3,
                   child: Image.asset(
                     'images/waiting.png',
                     fit: BoxFit.cover,
@@ -45,8 +45,7 @@ class TransactionList extends StatelessWidget {
                         style: Theme.of(context).textTheme.headline6),
                     subtitle: Text(
                         DateFormat.yMMMd().format(_transactions[index].date)),
-                    trailing: MediaQuery.of(context).size.width > 320 &&
-                            MediaQuery.of(context).size.height > 320
+                    trailing: MediaQuery.of(context).size.width > 320
                         ? TextButton.icon(
                             style: TextButton.styleFrom(
                                 primary: Theme.of(context).errorColor),
