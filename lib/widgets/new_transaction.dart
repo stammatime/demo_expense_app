@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:expenses_app/widgets/adaptive_text_button.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -94,13 +95,7 @@ class _NewTransactionState extends State<NewTransaction> {
                             ? 'No Date Chosen!'
                             : 'Transaction Date: ${DateFormat.yMd().format(_selectedDate)}'),
                       ),
-                      TextButton(
-                        style: TextButton.styleFrom(
-                            primary: Theme.of(context).primaryColor),
-                        child: Text('Choose Date',
-                            style: TextStyle(fontWeight: FontWeight.bold)),
-                        onPressed: _presentDatePicker,
-                      ),
+                      AdaptiveTextButton('Choose a date', _presentDatePicker)
                     ],
                   ),
                 ), // not sure why we have this
