@@ -2,6 +2,11 @@
 
 A new Flutter project.
 
+# delploy to web
+
+run `bash ./deploy.sh` to push to S3 bucket.
+Website can be found [http://flutter-expense-tracker.s3-website-us-east-1.amazonaws.com]here
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
