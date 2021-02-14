@@ -5,7 +5,11 @@ A new Flutter project.
 # delploy to web
 
 run `bash ./deploy.sh` to push to S3 bucket.
-Website can be found [http://flutter-expense-tracker.s3-website-us-east-1.amazonaws.com]here
+Website can be found [here](http://flutter-expense-tracker.s3-website-us-east-1.amazonaws.com)
+
+# Development
+
+Flutter web is in beta, some [extra steps](https://flutter.dev/docs/get-started/web) will need to be taken to get this running locally in browser.
 
 ## Getting Started
 
